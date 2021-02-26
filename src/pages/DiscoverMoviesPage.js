@@ -19,12 +19,12 @@ export default function DiscoverMoviesPage() {
     //  like '&' and '?' don't accidentally mess up the URL
     const queryParam = encodeURIComponent(searchText);
 
-    const data = await axios.get(
+    const response = await axios.get(
       `https://omdbapi.com/?apikey=27bbdb12&s=${queryParam}`
     );
 
-    setState({ status: "done", data: data.data.Search });
-    console.log("Success!", data);
+    setState({ status: "done", data: response.data.Search });
+    console.log("Success!", response);
   };
 
   return (
